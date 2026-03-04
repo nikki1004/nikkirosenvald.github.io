@@ -9,7 +9,7 @@
     content="Portfolio of Nikki Rosenvald — Learning Architect, Lead Program Manager, and content systems builder focused on security enablement, technical upskilling, and scalable learning strategy."
   />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
   <style>
@@ -19,29 +19,18 @@
       --cream: #e2e8f0;
       --cyan: #0ea5c8;
       --cyan-light: #38c4e8;
-      --cyan-dim: rgba(14, 165, 200, 0.12);
       --slate: #1e3a52;
       --slate-mid: #3d6080;
       --slate-light: #7aaac8;
       --navy: #0d1f35;
       --white: #ffffff;
-      --success: #dff5ec;
-      --success-border: #9cd7bf;
       --shadow-lg: 0 22px 60px rgba(8, 13, 20, 0.08);
       --shadow-md: 0 14px 36px rgba(8, 13, 20, 0.06);
       --border-soft: 1px solid rgba(61, 96, 128, 0.14);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--paper);
       color: var(--ink);
@@ -51,38 +40,55 @@
       overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 3.25rem;
     }
 
-    a {
-      color: inherit;
+    .section-wrap { padding: 6rem 0; }
+
+    .section-kicker {
+      font-family: "DM Mono", monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .section-kicker::after {
+      content: "";
+      flex: 0 0 36px;
+      height: 1px;
+      background: var(--cyan);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.95rem, 3.2vw, 2.65rem);
+      font-weight: 700;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.86;
+      margin-bottom: 3rem;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
+      transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
@@ -93,10 +99,8 @@
 
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
+      inset: 0 0 auto 0;
+      z-index: 300;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -111,8 +115,6 @@
       font-weight: 700;
       font-size: 1rem;
       letter-spacing: 0.03em;
-      text-decoration: none;
-      color: var(--ink);
     }
 
     .nav-links {
@@ -127,14 +129,11 @@
       font-weight: 600;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      text-decoration: none;
       color: var(--slate-mid);
       transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
+    .nav-links a:hover { color: var(--cyan); }
 
     .nav-cta {
       background: var(--cyan);
@@ -143,10 +142,7 @@
       border-radius: 3px;
     }
 
-    .nav-cta:hover {
-      background: var(--ink);
-      color: var(--white) !important;
-    }
+    .nav-cta:hover { background: var(--ink); }
 
     .hero {
       min-height: 100vh;
@@ -157,6 +153,7 @@
 
     .hero-left {
       background: var(--ink);
+      color: var(--white);
       display: flex;
       align-items: flex-end;
       padding: 5rem 4.5rem 5rem 5rem;
@@ -173,18 +170,7 @@
         radial-gradient(ellipse at 85% 15%, rgba(13, 31, 53, 0.78) 0%, transparent 56%);
     }
 
-    .hero-noise {
-      position: absolute;
-      inset: 0;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    .hero-left-inner {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
+    .hero-left-inner { position: relative; z-index: 1; width: 100%; }
 
     .hero-eyebrow {
       font-family: "DM Mono", monospace;
@@ -193,8 +179,6 @@
       text-transform: uppercase;
       color: var(--cyan-light);
       margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.2s forwards;
     }
 
     .hero-name {
@@ -202,9 +186,6 @@
       font-size: clamp(2.9rem, 4.8vw, 4.35rem);
       font-weight: 900;
       line-height: 1.04;
-      color: var(--white);
-      opacity: 0;
-      animation: fadeUp 0.9s 0.4s forwards;
     }
 
     .hero-name em {
@@ -213,14 +194,12 @@
     }
 
     .hero-tagline {
-      max-width: 470px;
+      max-width: 500px;
       font-size: clamp(0.96rem, 1.45vw, 1.08rem);
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.68);
       margin-top: 1.55rem;
       line-height: 1.76;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.6s forwards;
     }
 
     .hero-divider {
@@ -228,16 +207,12 @@
       height: 2px;
       background: var(--cyan);
       margin: 2.35rem 0;
-      opacity: 0;
-      animation: fadeIn 0.9s 0.76s forwards;
     }
 
     .hero-stats {
       display: flex;
       gap: 2.75rem;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.88s forwards;
     }
 
     .stat-num {
@@ -264,8 +239,6 @@
       flex-direction: column;
       justify-content: center;
       padding: 5rem 5rem 5rem 4rem;
-      opacity: 0;
-      animation: fadeIn 1.1s 0.9s forwards;
     }
 
     .hero-right-tag {
@@ -335,7 +308,6 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      text-decoration: none;
       border-radius: 3px;
       transition: all 0.22s ease;
     }
@@ -345,9 +317,7 @@
       color: var(--white);
     }
 
-    .btn-primary:hover {
-      background: var(--ink);
-    }
+    .btn-primary:hover { background: var(--ink); }
 
     .btn-secondary {
       color: var(--slate);
@@ -360,65 +330,19 @@
       background: rgba(255, 255, 255, 0.38);
     }
 
-    .section-wrap {
-      padding: 6rem 0;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 3.25rem;
-    }
-
-    .section-kicker {
-      font-family: "DM Mono", monospace;
-      font-size: 0.63rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-kicker::after {
-      content: "";
-      flex: 0 0 36px;
-      height: 1px;
-      background: var(--cyan);
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.95rem, 3.2vw, 2.65rem);
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 1rem;
-    }
-
-    .section-intro {
-      max-width: 680px;
-      font-size: 0.95rem;
-      color: var(--slate);
-      line-height: 1.86;
-      margin-bottom: 3.5rem;
-    }
-
     .snapshot-band {
       background: var(--white);
-      padding: 2rem 0 0;
-      display: block;
-      clear: both;
+      padding: 2.5rem 0 4rem;
       width: 100%;
     }
 
     .snapshot-card {
       background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
       border: 1px solid var(--cream);
-      padding: 1.75rem;
+      padding: 2rem;
       box-shadow: var(--shadow-md);
       width: 100%;
+      margin-bottom: 1.5rem;
     }
 
     .snapshot-meta {
@@ -437,19 +361,14 @@
       line-height: 1.3;
     }
 
-    .snapshot-note {
-      max-width: 470px;
-      font-size: 0.84rem;
-      color: var(--slate-mid);
-      line-height: 1.7;
-    }
-
     .snapshot-frame {
       width: 100%;
       border: 1px solid rgba(61, 96, 128, 0.12);
       border-radius: 14px;
       overflow: hidden;
       background: #07131f;
+      margin-top: 1rem;
+      cursor: zoom-in;
     }
 
     .snapshot-frame img {
@@ -460,6 +379,7 @@
 
     #philosophy {
       background: var(--white);
+      padding-top: 2.5rem;
     }
 
     .philosophy-grid {
@@ -481,14 +401,9 @@
       transform: translateY(-2px);
     }
 
-    .philosophy-card:nth-child(even) {
-      border-right: none;
-    }
-
+    .philosophy-card:nth-child(even) { border-right: none; }
     .philosophy-card:nth-child(3),
-    .philosophy-card:nth-child(4) {
-      border-bottom: none;
-    }
+    .philosophy-card:nth-child(4) { border-bottom: none; }
 
     .philo-num {
       font-family: "DM Mono", monospace;
@@ -514,7 +429,8 @@
       line-height: 1.85;
     }
 
-    #impact {
+    #impact,
+    #contact {
       background: var(--ink);
       color: var(--white);
     }
@@ -546,24 +462,21 @@
       background: rgba(255, 255, 255, 0.07);
     }
 
-    .impact-grid {
-      margin-bottom: 1px;
-    }
+    .impact-grid { margin-bottom: 1px; }
 
     .impact-card {
       background: var(--ink);
       padding: 2.45rem;
       position: relative;
       overflow: hidden;
-      transition: background 0.26s ease;
     }
 
     .impact-card::after {
       content: "";
       position: absolute;
-      bottom: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       height: 2px;
       background: var(--cyan);
       transform: scaleX(0);
@@ -571,13 +484,7 @@
       transition: transform 0.35s ease;
     }
 
-    .impact-card:hover {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .impact-card:hover::after {
-      transform: scaleX(1);
-    }
+    .impact-card:hover::after { transform: scaleX(1); }
 
     .impact-metric {
       font-family: "Playfair Display", serif;
@@ -602,15 +509,8 @@
       line-height: 1.8;
     }
 
-    #work {
-      background: var(--paper);
-    }
-
-    .projects-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
+    #work { background: var(--paper); }
+    .projects-layout { display: flex; flex-direction: column; gap: 4rem; }
 
     .project-featured {
       display: grid;
@@ -618,17 +518,12 @@
       background: var(--white);
       border: 1px solid var(--cream);
       overflow: hidden;
-      box-shadow: none;
       transition: box-shadow 0.3s ease;
     }
 
-    .project-featured:hover {
-      box-shadow: var(--shadow-lg);
-    }
+    .project-featured:hover { box-shadow: var(--shadow-lg); }
 
-    .project-content {
-      padding: 2.8rem 3rem;
-    }
+    .project-content { padding: 2.8rem 3rem; }
 
     .project-kicker {
       font-family: "DM Mono", monospace;
@@ -681,7 +576,6 @@
       font-size: 0.82rem;
       color: var(--slate);
       display: flex;
-      align-items: flex-start;
       gap: 0.5rem;
       line-height: 1.65;
     }
@@ -690,7 +584,6 @@
       content: "→";
       color: var(--cyan);
       flex-shrink: 0;
-      margin-top: 0.05rem;
     }
 
     .project-skills {
@@ -791,6 +684,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: zoom-in;
     }
 
     .artifact-preview-frame img {
@@ -865,27 +759,14 @@
       color: var(--slate-light);
     }
 
-    .system-note {
-      font-size: 0.82rem;
-      color: var(--slate-mid);
-      line-height: 1.7;
-      padding: 0.9rem 1rem;
-      border-radius: 12px;
-      background: rgba(14, 165, 200, 0.06);
-      border: 1px solid rgba(14, 165, 200, 0.14);
-    }
-
-    .projects-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
+    .projects-grid-2,
     .projects-grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
+
+    .projects-grid-2 { grid-template-columns: 1fr 1fr; }
+    .projects-grid-3 { grid-template-columns: repeat(3, 1fr); }
 
     .project-card {
       background: var(--white);
@@ -958,24 +839,18 @@
       color: #9cecff;
     }
 
-    .project-card .project-content {
-      padding: 1.75rem 2rem;
-    }
+    .project-card .project-content { padding: 1.75rem 2rem; }
+    .project-card .project-title { font-size: 1.1rem; }
+    .project-card .project-body { font-size: 0.845rem; margin-bottom: 1rem; }
 
-    .project-card .project-title {
-      font-size: 1.1rem;
-    }
-
-    .project-card .project-body {
-      font-size: 0.845rem;
-      margin-bottom: 1rem;
-    }
-
-    #credentials {
+    #credentials,
+    #testimonial {
       background: var(--white);
     }
 
-    .cred-layout {
+    .cred-layout,
+    .about-grid,
+    .contact-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
@@ -1006,11 +881,6 @@
       padding: 1rem 1.25rem;
       background: var(--paper);
       border-radius: 3px;
-      transition: background 0.2s ease;
-    }
-
-    .cert-item:hover {
-      background: var(--cream);
     }
 
     .cert-dot {
@@ -1039,9 +909,7 @@
       border-bottom: 1px solid var(--cream);
     }
 
-    .edu-item:last-child {
-      border-bottom: none;
-    }
+    .edu-item:last-child { border-bottom: none; }
 
     .edu-degree {
       font-size: 0.9rem;
@@ -1071,24 +939,9 @@
       border-radius: 3px;
       color: var(--slate);
       text-align: center;
-      transition: all 0.2s ease;
     }
 
-    .tool-tag:hover {
-      background: var(--cream);
-      border-color: var(--slate-light);
-    }
-
-    #about {
-      background: var(--navy);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+    #about { background: var(--navy); }
 
     .about-text p {
       font-size: 0.9rem;
@@ -1121,14 +974,17 @@
       margin-bottom: 0;
     }
 
-    .about-image-wrap img {
-      width: 100%;
-      border-radius: 4px;
+    .about-image-wide {
+      border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      align-self: center;
     }
 
-    #testimonial {
-      background: var(--paper);
+    .about-image-wide img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .testimonial-wrap {
@@ -1142,6 +998,7 @@
       background: var(--white);
       padding: 3rem 3.25rem;
       border-left: 4px solid var(--cyan);
+      box-shadow: var(--shadow-md);
     }
 
     .testimonial-quote {
@@ -1186,6 +1043,7 @@
       background: var(--white);
       padding: 1.75rem;
       border: 1px solid var(--cream);
+      box-shadow: var(--shadow-md);
     }
 
     .aside-card-label {
@@ -1201,18 +1059,6 @@
       font-size: 0.855rem;
       color: var(--slate);
       line-height: 1.75;
-    }
-
-    #contact {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
     }
 
     .contact-body {
@@ -1234,15 +1080,11 @@
       gap: 0.75rem;
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.2s ease;
       padding: 0.75rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    .contact-link:hover {
-      color: var(--cyan-light);
-    }
+    .contact-link:hover { color: var(--cyan-light); }
 
     .contact-link-icon {
       font-size: 1rem;
@@ -1278,22 +1120,11 @@
       margin-bottom: 1.25rem;
       outline: none;
       border-radius: 3px;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      border-color: var(--cyan);
     }
 
     .form-textarea {
       resize: vertical;
       min-height: 120px;
-    }
-
-    .form-input::placeholder,
-    .form-textarea::placeholder {
-      color: rgba(255, 255, 255, 0.25);
     }
 
     .form-submit {
@@ -1309,11 +1140,6 @@
       text-transform: uppercase;
       padding: 1rem;
       border-radius: 3px;
-      transition: background 0.2s ease;
-    }
-
-    .form-submit:hover {
-      background: var(--cyan-light);
     }
 
     footer {
@@ -1339,10 +1165,42 @@
       color: rgba(255, 255, 255, 0.26);
     }
 
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(8, 13, 20, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.show { display: flex; }
+
+    .lightbox-content {
+      max-width: 92vw;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+    }
+
     @media (max-width: 1100px) {
       .project-featured,
-      .about-grid,
       .cred-layout,
+      .about-grid,
       .testimonial-wrap,
       .contact-layout {
         grid-template-columns: 1fr;
@@ -1355,30 +1213,12 @@
     }
 
     @media (max-width: 900px) {
-      nav {
-        padding: 1rem 1.4rem;
-      }
-
-      .nav-links {
-        gap: 1rem;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-left {
-        padding: 4rem 2rem 3rem;
-        min-height: auto;
-      }
-
-      .hero-right {
-        padding: 3rem 2rem;
-      }
-
-      .container {
-        padding: 0 1.4rem;
-      }
+      nav { padding: 1rem 1.4rem; }
+      .nav-links { gap: 1rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 2rem 3rem; }
+      .hero-right { padding: 3rem 2rem; }
+      .container { padding: 0 1.4rem; }
 
       .philosophy-grid,
       .impact-grid,
@@ -1388,30 +1228,16 @@
         grid-template-columns: 1fr;
       }
 
-      .metrics-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .pathway-row {
-        grid-template-columns: 1fr;
-      }
-
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .pathway-row { grid-template-columns: 1fr; }
       .pathway-family {
         border-right: none;
         border-bottom: 1px solid rgba(61, 96, 128, 0.12);
       }
 
-      .philosophy-card:nth-child(odd) {
-        border-right: none;
-      }
-
-      .philosophy-card {
-        border-bottom: 1px solid var(--cream) !important;
-      }
-
-      .philosophy-card:last-child {
-        border-bottom: none !important;
-      }
+      .philosophy-card:nth-child(odd) { border-right: none; }
+      .philosophy-card { border-bottom: 1px solid var(--cream) !important; }
+      .philosophy-card:last-child { border-bottom: none !important; }
 
       footer {
         flex-direction: column;
@@ -1421,34 +1247,18 @@
     }
 
     @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
+      .nav-links { display: none; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
       .metrics-grid,
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .tools-grid { grid-template-columns: 1fr; }
       .snapshot-meta {
         flex-direction: column;
         align-items: flex-start;
       }
-
-      .project-content {
-        padding: 2rem 1.4rem;
-      }
-
+      .project-content { padding: 2rem 1.4rem; }
       .system-visual,
       .contact-form-wrap,
-      .testimonial-letter {
-        padding: 1.5rem;
-      }
+      .testimonial-letter { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -1467,26 +1277,25 @@
 
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-noise"></div>
       <div class="hero-left-inner">
         <p class="hero-eyebrow">Learning Enablement · Security & Technical Upskilling · Enterprise Strategy</p>
-        <h1 class="hero-name">Nikki<br /><em>Rosenvald</em></h1>
+        <h1 class="hero-name">Nikki<br><em>Rosenvald</em></h1>
         <p class="hero-tagline">
-          I design the frameworks that transform what we know into what we can do - delivering measurable results at scale without sacrificing the user experience.
+          I design the frameworks that transform what teams know into what they can do—delivering measurable results at scale without sacrificing the learner experience.
         </p>
         <div class="hero-divider"></div>
         <div class="hero-stats">
           <div>
             <div class="stat-num">86K+</div>
-            <div class="stat-label">Learners Reached<br />Globally</div>
+            <div class="stat-label">Learners Reached<br>Globally</div>
           </div>
           <div>
             <div class="stat-num">29%</div>
-            <div class="stat-label">Proficiency Lift<br />Documented</div>
+            <div class="stat-label">Proficiency Lift<br>Documented</div>
           </div>
           <div>
             <div class="stat-num">5</div>
-            <div class="stat-label">Enterprise Career<br />Pathways Built</div>
+            <div class="stat-label">Enterprise Career<br>Pathways Built</div>
           </div>
         </div>
       </div>
@@ -1495,19 +1304,19 @@
     <div class="hero-right">
       <p class="hero-right-tag">Technical LXD · Lead PM · Content Architect</p>
       <p class="hero-philosophy">
-        I start at the finish line, but I don’t take the scenic route. I work backward from the goal, using pragmatism and real-time iteration to build learning strategies that actually move the needle. In a world moving this fast, 'perfect' is the enemy of 'done'- I build for immediate impact and scale from there.
+        I work backward from the goal, move fast, and iterate in real time—building learning strategies that drive impact now and scale from there.
       </p>
       <p class="hero-bio">
-        I’m a Learning Architect and Lead Program Manager who prioritizes technical execution over polish. I blend business logic with educational design to solve capability gaps at the root. My approach is simple: identify the bottleneck, build the solution, and iterate until the business outcome is met.
+        I’m a Learning Architect and Lead Program Manager who blends business logic with educational design to solve capability gaps at the root.
       </p>
       <p class="hero-bio">
-        I'm especially energized by AI's practical potential in learning, strong systems design, and experiences that help people actually apply what they have learned once training is over.
+        I’m especially energized by AI’s practical potential in learning, strong systems design, and experiences that help people actually apply what they’ve learned after training is over.
       </p>
 
       <div class="hero-note">
         <p>
-          "Common sense over excessive complexity"
-          <span> -Me, the Professional GSDer </span>
+          “Common sense over excessive complexity.”
+          <span>— Me, the professional GSD-er</span>
         </p>
       </div>
 
@@ -1519,54 +1328,26 @@
   </section>
 
   <section class="snapshot-band">
-    {
-  background: var(--white);
-  padding: 2.5rem 0 4rem;
-  display: block;
-  clear: both;
-  width: 100%;
-}
-
     <div class="container">
       <div class="snapshot-card reveal">
-         {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-    border: 1px solid var(--cream);
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
         <div class="snapshot-meta">
-          {
-    width: 100%;
-    border: 1px solid rgba(61, 96, 128, 0.12);
-    border-radius: 14px;
-    overflow: hidden;
-    background: #07131f;
-    margin-top: 1rem;
-  }
           <div>
             <p class="section-kicker" style="margin-bottom: 0.5rem;">Quick snapshot</p>
             <h2 class="snapshot-title">A fast visual read on scope, systems, and outcomes</h2>
           </div>
-          <p class="snapshot-note">
-                </p>
         </div>
 
-      <div class="snapshot-frame zoomable-image" onclick="openLightbox('snapshot.png', 'Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work')">
-  <img src="snapshot.png" alt="Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work" />
-</div
+        <div class="snapshot-frame" onclick="openLightbox('snapshot.png', 'Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work')">
+          <img src="snapshot.png" alt="Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work">
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="philosophy" class="section-wrap">
-    {
-    background: var(--white);
-    padding-top: 2.5rem;
-  }
     <div class="container">
-
       <div class="section-kicker reveal">How I think</div>
-      <h2 class="section-title reveal">Four Principles That<br />Shape Everything I Build</h2>
+      <h2 class="section-title reveal">Four Principles That<br>Shape Everything I Build</h2>
       <p class="section-intro reveal">
         These are the patterns behind my best work: start with the destination, dig under the surface, keep strategy tied to real business goals, and build systems that scale without losing clarity.
       </p>
@@ -1584,7 +1365,7 @@
           <div class="philo-num">02</div>
           <div class="philo-title">Dive Deep Before Solving</div>
           <p class="philo-body">
-            If people are missing the mark, I want to know why. I look for root cause process friction, knowledge gaps, incentives, tool confusion, role ambiguity - so the solution addresses the real problem instead of the loudest symptom.
+            If people are missing the mark, I want to know why. I look for root cause process friction, knowledge gaps, incentives, tool confusion, and role ambiguity so the solution addresses the real problem instead of the loudest symptom.
           </p>
         </div>
 
@@ -1592,7 +1373,7 @@
           <div class="philo-num">03</div>
           <div class="philo-title">Tie Strategy to Outcomes That Matter</div>
           <p class="philo-body">
-            Learning strategy has to support the end goal, whether that is stronger readiness, lower risk, faster onboarding, cleaner audit performance, or internal mobility. I build measurement in from the start so the work can prove its value.
+            Learning strategy has to support the end goal, whether that is stronger readiness, lower risk, faster onboarding, cleaner audit performance, or internal mobility. I build measurement in from the start.
           </p>
         </div>
 
@@ -1600,7 +1381,7 @@
           <div class="philo-num">04</div>
           <div class="philo-title">Build Systems, Not One-Off Deliverables</div>
           <p class="philo-body">
-            I think in repeatable structures - pathways, templates, governance, content libraries, knowledge hubs, and release rhythms. That is how teams stop reinventing the wheel and start building capability that lasts.
+            I think in repeatable structures—pathways, templates, governance, content libraries, knowledge hubs, and release rhythms. That is how teams stop reinventing the wheel and start building capability that lasts.
           </p>
         </div>
       </div>
@@ -1610,34 +1391,28 @@
   <section id="impact" class="section-wrap">
     <div class="container">
       <div class="section-kicker reveal">By the numbers</div>
-      <h2 class="section-title reveal">Outcomes That Moved<br />The Needle</h2>
+      <h2 class="section-title reveal">Outcomes That Moved<br>The Needle</h2>
       <p class="section-intro reveal">
         From enterprise-scale security compliance to youth-focused microlearning, this is the impact the work produced in the real world.
       </p>
 
       <div class="impact-grid reveal">
         <div class="impact-card">
-          <div class="impact-metric">116K+</div>
+          <div class="impact-metric">86K+</div>
           <div class="impact-scope">Amazon + Whole Foods</div>
-          <p class="impact-desc">
-            Learners reached through annual security policy training across corporate and retail, localized into 14 languages with a 96% completion rate.
-          </p>
+          <p class="impact-desc">Learners reached through annual security policy training across corporate and retail, localized into 14 languages.</p>
         </div>
 
         <div class="impact-card">
           <div class="impact-metric">29%</div>
           <div class="impact-scope">Proficiency Lift</div>
-          <p class="impact-desc">
-            Documented gains in security, privacy, and TPM skills through pre/post assessments and scenario-based validations for role readiness pathways.
-          </p>
+          <p class="impact-desc">Documented gains in security, privacy, and TPM skills through assessments and scenario-based validations.</p>
         </div>
 
         <div class="impact-card">
           <div class="impact-metric">5</div>
           <div class="impact-scope">Career Pathways</div>
-          <p class="impact-desc">
-            Custom role-based pathways built across security and technical programs, each combining coursework, mentoring, shadowing, and capstone validation.
-          </p>
+          <p class="impact-desc">Role-based pathways built across security and technical programs, each combining coursework, mentoring, and capstones.</p>
         </div>
       </div>
 
@@ -1645,25 +1420,19 @@
         <div class="impact-card">
           <div class="impact-metric">~500</div>
           <div class="impact-scope">VISA Assessors Trained</div>
-          <p class="impact-desc">
-            Built third-party enablement from zero across partner sites and helped standardize findings language to reduce audit cycle time by a full day.
-          </p>
+          <p class="impact-desc">Built third-party enablement from zero and helped standardize findings language to reduce audit cycle time.</p>
         </div>
 
         <div class="impact-card">
           <div class="impact-metric">120+</div>
           <div class="impact-scope">Advantage Experience Assets</div>
-          <p class="impact-desc">
-            Created a reusable executive enablement library, coded the wiki hub, and reduced build time with templates and stronger governance.
-          </p>
+          <p class="impact-desc">Created a reusable executive enablement library, coded the wiki hub, and reduced build time with templates.</p>
         </div>
 
         <div class="impact-card">
           <div class="impact-metric">255+</div>
-          <div class="impact-scope">Youth Microlearning Modules</div>
-          <p class="impact-desc">
-            Designed and launched a mobile-first digital library for at-risk teens in foster care, with continued growth across Georgia.
-          </p>
+          <div class="impact-scope">Youth Modules</div>
+          <p class="impact-desc">Designed and launched a mobile-first digital library for at-risk teens in foster care across Georgia.</p>
         </div>
       </div>
     </div>
@@ -1672,9 +1441,9 @@
   <section id="work" class="section-wrap">
     <div class="container">
       <div class="section-kicker reveal">Selected work</div>
-      <h2 class="section-title reveal">Projects That Represent<br />the Full Range</h2>
+      <h2 class="section-title reveal">Projects That Represent<br>the Full Range</h2>
       <p class="section-intro reveal">
-        Most recent Amazon work is confidential by policy, so the strongest portfolio move here is a clean, readable summary of the systems I built — supported by preview artifacts instead of screenshots forced into tiny frames.
+ 
       </p>
 
       <div class="projects-layout">
@@ -1683,10 +1452,10 @@
             <p class="project-kicker">Global Security Enablement · Amazon</p>
             <h3 class="project-title">Annual Security Policy Program — 86K+ Learners, 14 Languages</h3>
             <p class="project-body">
-              This was not just a training refresh. I helped evolve a large-scale compliance requirement into a more structured enablement system — one that could support global reach, tighter governance, more consistent learner experience, and better visibility into where risk patterns were showing up.
+              I helped evolve a large-scale compliance requirement into a more structured enablement system with stronger governance, more consistent learner experience, and better visibility into risk patterns.
             </p>
             <p class="project-body">
-              My role sat at the intersection of strategy, design, and operational execution. I localized the program at scale, supported the migration from Cornerstone into Amazon Learn, adapted the experience for Whole Foods audiences, and translated audit and repeat-violation patterns into targeted awareness campaigns instead of generic reminders.
+              My role sat at the intersection of strategy, design, and operations: localization at scale, Cornerstone to Amazon Learn transition support, Whole Foods adaptation, and targeted awareness campaigns based on audit and repeat-violation patterns.
             </p>
 
             <div class="project-results">
@@ -1694,8 +1463,8 @@
               <ul class="results-list">
                 <li>Global program delivery across 86K+ learners and 14 languages</li>
                 <li>Governance and LMS support during a major platform transition</li>
-                <li>More targeted messaging tied to actual audit findings and repeat-risk trends</li>
-                <li>Retail adaptation for Whole Foods so the experience fit the audience, not just the policy</li>
+                <li>Targeted messaging tied to real audit findings and risk trends</li>
+                <li>Retail adaptation for Whole Foods audiences</li>
               </ul>
             </div>
 
@@ -1731,14 +1500,11 @@
                 </div>
               </div>
 
-              <div class="artifact sample">
-                <div class="artifact-preview-label">Artifact sample</div>
-                <div class="artifact-preview-frame">
-                  <img src="security.png" alt="Security enablement infographic preview" />
+              <div class="artifact-preview">
+                <div class="artifact-preview-label">Artifact preview</div>
+                <div class="artifact-preview-frame" onclick="openLightbox('security.png', 'Security enablement infographic preview')">
+                  <img src="security.png" alt="Security enablement infographic preview">
                 </div>
-              </div>
-
-               
               </div>
             </div>
           </div>
@@ -1752,7 +1518,7 @@
               The gap was clear: people wanted to move into more technical security roles, but there was no structured path that showed what to learn, how to progress, and what readiness actually looked like.
             </p>
             <p class="project-body">
-              I designed the pathway architecture, mapped competencies to trusted frameworks like NIST, NICE, and SANS, and built the learning journey around real movement — coursework, shadowing, mentoring, scenario-based capstones, and operational support materials. I also shaped the visual identity and collateral that helped the program feel real inside the organization, not like a one-off training initiative.
+              I designed the pathway architecture, mapped competencies to NIST, NICE, and SANS, and built the learning journey around real movement—coursework, shadowing, mentoring, scenario-based capstones, and operational support materials.
             </p>
 
             <div class="project-results">
@@ -1829,12 +1595,9 @@
 
               <div class="artifact-preview">
                 <div class="artifact-preview-label">Original visual reference</div>
-                <div class="artifact-preview-frame">
-                  <img src="pathways.png" alt="Career pathways architecture map preview" />
+                <div class="artifact-preview-frame" onclick="openLightbox('pathways.png', 'Career pathways architecture map preview')">
+                  <img src="pathways.png" alt="Career pathways architecture map preview">
                 </div>
-              </div>
-
-            
               </div>
             </div>
           </div>
@@ -1855,28 +1618,11 @@
               <p class="project-kicker">Advantage Experience · Amazon</p>
               <h3 class="project-title">Executive Professional Development — Built From Zero</h3>
               <p class="project-body">
-                Advantage Experience was an internal professional development initiative for roughly 8,000 senior employees, created to address HR-identified gaps in performance management, inclusive leadership, and AI fluency.
+                Advantage Experience was an internal professional development initiative for roughly 8,000 senior employees, created to address gaps in performance management, inclusive leadership, and AI fluency.
               </p>
               <p class="project-body">
-                I helped turn that need into something real and usable: a branded program with a clear identity, a coded wiki hub, reusable learning assets, stakeholder rhythm, survey feedback loops, and stronger alignment to Leadership Principles and annual performance conversations. Instead of creating disconnected materials, I built a system leaders could keep using and evolving.
+                I helped turn that need into something real and usable: a branded program, coded wiki hub, reusable learning assets, feedback loops, and stronger alignment to Leadership Principles and annual performance conversations.
               </p>
-
-              <div class="project-results">
-                <div class="results-label">What it produced</div>
-                <ul class="results-list">
-                  <li>120+ reusable content assets across 15+ topics</li>
-                  <li>Coded wiki hub that made materials easier to find and reuse</li>
-                  <li>Templates and governance that reduced content build time</li>
-                  <li>Learning outcomes tied back to Amazon Leadership Principles and Forte</li>
-                </ul>
-              </div>
-
-              <div class="project-skills">
-                <span class="skill-chip">Program Management</span>
-                <span class="skill-chip">Wiki Architecture</span>
-                <span class="skill-chip">Executive Enablement</span>
-                <span class="skill-chip">Visual Design</span>
-              </div>
             </div>
           </div>
 
@@ -1894,26 +1640,11 @@
               <p class="project-kicker">VISA Assessor Enablement · Amazon</p>
               <h3 class="project-title">Third-Party Assessor Enablement Built From Scratch</h3>
               <p class="project-body">
-                Architected a new enablement program to prepare third-party assessors across partner sites for more consistent audit execution, shared terminology, and standardized findings communication.
-               </p>
-              <p class="project-body">
-                Built a unified enablement engine to standardize how partner sites identify, document, and mitigate risk—moving from "subjective opinions" to "standardized findings."
+                Built a new enablement program to prepare third-party assessors across partner sites for more consistent audit execution, shared terminology, and standardized findings communication.
               </p>
-
-              <div class="project-results">
-                <div class="results-label">What it produced</div>
-                <ul class="results-list">
-                  <li>~500 assessors enabled across partner locations</li>
-                  <li>Standardized language and process expectations</li>
-                  <li>One full day cut from the audit cycle through cleaner handoffs</li>
-                </ul>
-              </div>
-
-              <div class="project-skills">
-                <span class="skill-chip">Audit Enablement</span>
-                <span class="skill-chip">Partner Readiness</span>
-                <span class="skill-chip">Standardization</span>
-              </div>
+              <p class="project-body">
+                The end result was a more unified enablement engine that moved teams from subjective opinions to standardized findings.
+              </p>
             </div>
           </div>
         </div>
@@ -1933,7 +1664,7 @@
               <p class="project-kicker">Empowering At-Risk Youth · Lifebridge Academy</p>
               <h3 class="project-title">255+ Microlearning Modules for Foster Youth</h3>
               <p class="project-body">
-                Built a mobile-first digital learning library for at-risk teens in foster care across Georgia, with interactive lessons that ended in practical action — not just awareness.
+                Built a mobile-first digital learning library for at-risk teens in foster care across Georgia, with interactive lessons that ended in practical action—not just awareness.
               </p>
             </div>
           </div>
@@ -2059,49 +1790,51 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <div class="section-kicker" style="color: var(--cyan-light);">About Me</div>
-          <h2 class="section-title" style="color: var(--white);">Technical LXD.<br />Lead PM.<br />Content Architect.</h2>
+          <h2 class="section-title" style="color: var(--white);">Technical LXD.<br>Lead PM.<br>Content Architect.</h2>
 
           <p>
-            I thrive on understanding the why behind every challenge before I ever touch the solution. My best work happens when I can connect business needs, technical realities, and human behavior into one system that actually makes sense.
+            I thrive on understanding the why behind every challenge before I touch the solution. My best work happens when I can connect business needs, technical realities, and human behavior into one system that actually makes sense.
           </p>
           <p>
-            I am especially energized by AI, learning technology, and the design of experiences that feel both strategic and intuitive. I like turning complexity into clarity — whether that shows up as a pathway, a content ecosystem, a wiki, or a better way for people to learn on the job.
+            I’m especially energized by AI, learning technology, and experiences that feel both strategic and intuitive. I like turning complexity into clarity—whether that shows up as a pathway, a content ecosystem, a wiki, or a better way for people to learn on the job.
           </p>
           <p>
-            I also care about the visual layer. Good design earns attention, builds trust, and helps ideas stick. That is why I often end up owning both the architecture and the experience around it.
+            I also care about the visual layer. Good design earns attention, builds trust, and helps ideas stick, which is why I often end up owning both the architecture and the experience around it.
           </p>
 
           <div class="about-quote">
-            <p>One of my favorite quotes:
-              "The way to get started is to quit talking and begin doing."</p>
+            <p>"The way to get started is to quit talking and begin doing."</p>
             <p>— WALT DISNEY</p>
           </div>
 
           <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07);">
             <p style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 0.75rem;">Outside of work</p>
             <p style="font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 0;">
-              When I’m not working, I’m usually deep in the beautiful chaos of life with my three kids and a Saint Bernard. You’ll find me in the mountains, traveling, or mid-project on whatever I’m currently building or fixing around the house. I’m a big believer that the best work happens when you’re fueled by curiosity, a little adventure, and the common sense to know when to step away and just breathe.
+              Outside work, I’m usually with my three kids and Saint Bernard, traveling, in the mountains, or building and fixing something at home.
             </p>
           </div>
         </div>
 
-     <div class="about-image-wide reveal">
-  <img src="aboutme.png" alt="Nikki Rosenvald portrait and personal brand graphic" />
-</div>
+        <div class="about-image-wide reveal">
+          <img src="aboutme.png" alt="Nikki Rosenvald portrait and personal brand graphic">
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="testimonial" class="section-wrap">
     <div class="container">
       <div class="section-kicker reveal">What others say</div>
-      <h2 class="section-title reveal">The Work Speaks.<br />So Do the People Behind It.</h2>
+      <h2 class="section-title reveal">The Work Speaks.<br>So Do the People Behind It.</h2>
 
       <div class="testimonial-wrap reveal">
         <div>
           <div class="testimonial-letter">
             <p class="testimonial-quote">
-              "Nikki selflessly devotes her time and talent to not only meet but often exceed our quarterly goals."
+              “Nikki selflessly devotes her time and talent to not only meet but often exceed our quarterly goals.”
             </p>
             <p class="testimonial-body">
-              It is my honor to write this testimonial for Nikki Rosenvald. As a dedicated member of our Lifebridge Design Team, Nikki has been a critical contributor to our youth learning library — designing, developing, implementing, and managing instructional content, courses, and projects within our online learning platform. She also assists with ongoing curriculum evaluation to monitor and analyze for effectiveness.
+              It is my honor to write this testimonial for Nikki Rosenvald. As a dedicated member of our Lifebridge Design Team, Nikki has been a critical contributor to our youth learning library—designing, developing, implementing, and managing instructional content, courses, and projects within our online learning platform.
             </p>
             <p class="testimonial-body">
               Nikki is a team player who collaborates well, keeps leadership informed, and produces high-quality, engaging content. I am confident she will be a valued asset in any capacity and am happy to recommend her.
@@ -2117,14 +1850,14 @@
           <div class="aside-card">
             <div class="aside-card-label">Currently Seeking</div>
             <p class="aside-card-body">
-              Senior Learning Enablement, Learning Architect, or Lead Program Manager roles — remote or hybrid. Especially strong fit for technical upskilling, security enablement, and content systems work.
+              Senior Learning Enablement, Learning Architect, or Lead Program Manager roles—remote or hybrid.
             </p>
           </div>
 
           <div class="aside-card">
             <div class="aside-card-label">Open To</div>
             <p class="aside-card-body">
-              Select contract or consulting engagements in curriculum strategy, pathway design, LMS governance, knowledge hubs, or security awareness program builds.
+              Select contract or consulting engagements in curriculum strategy, pathway design, LMS governance, knowledge hubs, or security awareness.
             </p>
           </div>
 
@@ -2142,26 +1875,26 @@
   <section id="contact" class="section-wrap">
     <div class="container">
       <div class="contact-layout reveal">
-        <div class="contact-left">
+        <div>
           <div class="section-kicker">Let's connect</div>
           <h2 class="section-title">Building something important?</h2>
           <p class="contact-body">
-            If you need someone who can connect strategy, execution, technical context, and polished learner experience, I would love to hear what you are building.
+            If you need someone who can connect strategy, execution, technical context, and polished learner experience, I’d love to hear what you’re building.
           </p>
 
           <div class="contact-links">
             <a href="mailto:nikkirosenvald@gmail.com" class="contact-link"><span class="contact-link-icon">✉</span><span>Email me</span></a>
-            <a href="https://www.linkedin.com/in/nikki-rosenvald/" target="_blank" class="contact-link" rel="noreferrer"><span class="contact-link-icon">in</span><span>LinkedIn</span></a>
+            <a href="https://www.linkedin.com/in/nikki-rosenvald/" target="_blank" rel="noreferrer" class="contact-link"><span class="contact-link-icon">in</span><span>LinkedIn</span></a>
             <a href="#work" class="contact-link"><span class="contact-link-icon">↘</span><span>View work samples</span></a>
           </div>
         </div>
 
         <div class="contact-form-wrap">
           <label class="form-label">Name</label>
-          <input class="form-input" type="text" placeholder="Your name" />
+          <input class="form-input" type="text" placeholder="Your name">
 
           <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="you@example.com" />
+          <input class="form-input" type="email" placeholder="you@example.com">
 
           <label class="form-label">Tell Me About It</label>
           <textarea class="form-textarea" placeholder="What are you building, where are you stuck, and what kind of support do you need?"></textarea>
@@ -2177,23 +1910,45 @@
     <div class="footer-note">Learning enablement · security pathways · systems that scale</div>
   </footer>
 
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="">
+  </div>
+
   <script>
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
       { threshold: 0.14 }
     );
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    function openLightbox(src, alt) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+
+    document.getElementById("lightbox-img").addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
   </script>
-        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close">&times;</span>
-  <img id="lightbox-img" class="lightbox-content" src="" alt="" />
-</div>
 </body>
 </html>

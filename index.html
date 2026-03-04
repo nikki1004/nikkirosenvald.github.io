@@ -1531,12 +1531,9 @@
           </p>
         </div>
 
-        <div class="snapshot-frame">
-          <img src="snapshot.png" alt="Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work" />
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="snapshot-frame zoomable-image" onclick="openLightbox('snapshot.png', 'Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work')">
+  <img src="snapshot.png" alt="Portfolio snapshot of Nikki Rosenvald cybersecurity enablement work" />
+</div
 
   <section id="philosophy" class="section-wrap">
     <div class="container">
@@ -2059,7 +2056,7 @@
         </div>
 
         <div class="about-image-wrap reveal">
-          <img src="about me.png" alt="Nikki Rosenvald portrait and personal brand graphic" />
+          <img src="snapshot.png" alt="Nikki Rosenvald portrait and personal brand graphic" />
         </div>
       </div>
     </div>
@@ -2126,8 +2123,8 @@
           </p>
 
           <div class="contact-links">
-            <a href="mailto:nikki@example.com" class="contact-link"><span class="contact-link-icon">✉</span><span>Email me</span></a>
-            <a href="https://www.linkedin.com" target="_blank" class="contact-link" rel="noreferrer"><span class="contact-link-icon">in</span><span>LinkedIn</span></a>
+            <a href="mailto:nikkirosenvald@gmail.com" class="contact-link"><span class="contact-link-icon">✉</span><span>Email me</span></a>
+            <a href="https://www.linkedin.com/in/nikki-rosenvald/" target="_blank" class="contact-link" rel="noreferrer"><span class="contact-link-icon">in</span><span>LinkedIn</span></a>
             <a href="#work" class="contact-link"><span class="contact-link-icon">↘</span><span>View work samples</span></a>
           </div>
         </div>
@@ -2167,5 +2164,9 @@
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" class="lightbox-content" src="" alt="" />
+</div>
 </body>
 </html>

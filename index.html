@@ -3,46 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikki Rosenvald — Strategic Enablement Leader</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Nikki Rosenvald — Learning Enablement Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root { --ink: #080d14; --paper: #f0f3f7; --cyan: #0ea5c8; --slate: #1e3a52; --white: #ffffff; }
-body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.7; margin: 0; overflow-x: hidden; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
-nav { position: fixed; width: 100%; padding: 1.2rem 3rem; background: rgba(240,243,247,0.92); backdrop-filter: blur(10px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.nav-brand { font-family:'Playfair Display'; font-weight:700; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+:root {
+  --ink: #080d14; --paper: #f0f3f7; --cream: #e2e8f0; --cyan: #0ea5c8;
+  --cyan-light: #38c4e8; --slate: #1e3a52; --slate-mid: #3d6080; --white: #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth; overflow-x: hidden;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7; overflow-x: hidden;}
 
-/* ── HERO ── */
-.hero { display: grid; grid-template-columns: 45% 55%; min-height: 90vh; padding-top: 80px; background: var(--ink); }
-.hero-content { color: var(--white); padding: 5rem; display: flex; flex-direction: column; justify-content: center; }
-.hero-visual { background: #1a2635; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-.hero-visual img { width: 85%; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border-radius: 4px; transition: transform 0.5s ease; }
-.hero-visual:hover img { transform: scale(1.02); }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3.5rem;background:rgba(240,243,247,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,0.05);}
+.nav-brand{font-family:'Playfair Display',serif;font-weight:700;text-decoration:none;color:var(--ink);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);text-decoration:none;}
 
-.strategy-tag { font-family: 'DM Mono', monospace; color: var(--cyan); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; }
-.hero-title { font-family: 'Playfair Display'; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1.1; margin: 0; }
-.hero-tagline { opacity: 0.8; margin-top: 1.8rem; font-size: 1.1rem; max-width: 480px; font-weight: 300; }
+/* HERO SECTION - Restored to Original Vertical Stack */
+.hero{padding:120px 0 60px; text-align: center; background: var(--ink); color: var(--white);}
+.hero-content{max-width: 900px; margin: 0 auto; padding: 0 2rem;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem, 6vw, 4.5rem);line-height:1.1;margin-bottom:1rem;}
+.hero-name em{color: var(--cyan-light); font-style: italic;}
+.hero-tagline{font-size:1.2rem;color:rgba(255,255,255,0.7);margin-bottom: 2rem;}
+.hero-snapshot{max-width: 1000px; margin: 40px auto 0; padding: 0 2rem;}
+.hero-snapshot img{width: 100%; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
 
-/* ── SECTION STYLES ── */
-.section-wrap { padding: 7rem 0; }
-.section-title { font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-bottom: 3.5rem; line-height: 1.2; }
-.project-card { display: grid; grid-template-columns: 1fr 1fr; background: var(--white); margin-bottom: 4rem; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
-.project-info { padding: 3.5rem; }
-.project-image { background: var(--ink); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-.project-card:hover .project-image img { transform: scale(1.05); }
+/* SECTION STYLES */
+.section-wrap{padding:6rem 0;}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:3rem; text-align: center;}
 
-.strategy-box { margin-top: 2rem; padding: 1.5rem; background: var(--paper); border-left: 3px solid var(--cyan); }
-.strategy-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--cyan); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
-.strategy-text { font-size: 0.88rem; font-style: italic; color: var(--slate); margin: 0; }
+/* PROJECT CARDS - Restored Original Alignment */
+.project-card{display:grid;grid-template-columns:1fr 1fr;background:var(--white);margin-bottom:4rem;border:1px solid var(--cream);overflow:hidden;}
+.project-img-box{background:var(--navy);overflow:hidden;}
+.project-img-box img{width:100%; height:100%; object-fit: cover;}
+.project-content{padding:3rem;}
 
-/* ── FOOTER ── */
-footer { background: var(--ink); color: rgba(255,255,255,0.3); padding: 4rem 2rem; text-align: center; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; }
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,0.4);padding:4rem 2rem;text-align:center;}
 
-@media(max-width: 900px) {
-  .hero, .project-card { grid-template-columns: 1fr; }
-  .hero-content, .project-info { padding: 3rem 2rem; }
-  nav { padding: 1rem 1.5rem; }
+@media(max-width:900px){
+  .hero-name{font-size: 2.5rem;}
+  .project-card{grid-template-columns:1fr;}
+  nav{padding: 1rem;}
 }
 </style>
 </head>
@@ -50,75 +54,53 @@ footer { background: var(--ink); color: rgba(255,255,255,0.3); padding: 4rem 2re
 
 <nav>
   <a href="#" class="nav-brand">Nikki Rosenvald</a>
-  <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">
-    <a href="#work" style="text-decoration:none; color:var(--ink); margin-right: 1.5rem;">Selected Work</a>
-    <a href="mailto:nikki.rosenvald@gmail.com" style="text-decoration:none; color:var(--white); background: var(--cyan); padding: 0.5rem 1rem; border-radius: 2px;">Contact</a>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
   <div class="hero-content">
-    <div class="strategy-tag">Lead Program Manager · Learning Architect</div>
-    <h1 class="hero-title">Building Systems <br><em>That Scale Talent.</em></h1>
-    <p class="hero-tagline">I don't just deliver content—I architect the operational mechanisms that align human capability with enterprise risk and high-stakes business goals.</p>
-    <div style="margin-top: 2.5rem;">
-        <a href="#work" style="color: var(--cyan); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;">View Strategic Impact ↓</a>
-    </div>
+    <p style="font-family:'DM Mono'; font-size: 0.7rem; color: var(--cyan-light); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Learning Enablement · Strategy · Operations</p>
+    <h1 class="hero-name">Nikki <em>Rosenvald</em></h1>
+    <p class="hero-tagline">I build the systems that turn knowledge into capability — at scale, with measurable outcomes, and with real people at the center.</p>
   </div>
-  <div class="hero-visual">
-    <img src="snapshot.png" alt="Operational Learning Dashboard Snapshot">
+  <div class="hero-snapshot">
+    <img src="snapshot.png" alt="Strategic Operations Snapshot">
   </div>
 </section>
 
 <section id="work" class="section-wrap">
   <div class="container">
-    <h2 class="section-title">Strategic Initiatives & <br>Enterprise Solutions</h2>
+    <h2 class="section-title">Selected Work</h2>
 
     <div class="project-card">
-      <div class="project-info">
-        <span class="strategy-tag">Executive Performance · Global Reach</span>
-        <h3 style="font-family:'Playfair Display'; font-size:1.9rem; margin:0.6rem 0;">The Advantage Experience</h3>
-        <p style="font-size:0.95rem; color:var(--slate);">Spearheaded the content infrastructure and wiki architecture for a flagship professional development program reaching 8,000+ employees. This initiative unified executive leadership under a single framework of excellence.</p>
-        
-        <div class="strategy-box">
-          <span class="strategy-label">The Strategic "Why"</span>
-          <p class="strategy-text">"In environments of extreme ambiguity, leadership requires more than skills—it requires a <strong>single source of truth</strong>. I built this ecosystem to eliminate knowledge silos and ensure that every leader had the exact mental models needed for rapid decision-making."</p>
-        </div>
+      <div class="project-img-box">
+        <img src="security.png" alt="Global Security Awareness">
       </div>
-      <div class="project-image">
-        <img src="snapshot.png" alt="The Advantage Experience Infrastructure">
+      <div class="project-content">
+        <h3 style="font-family:'Playfair Display'; font-size:1.8rem; margin-bottom:1rem;">Global Security Awareness</h3>
+        <p style="font-size:0.95rem; color:var(--slate-mid); margin-bottom: 1.5rem;">Leading enablement operating mechanisms for security compliance across 86,000+ employees. Localized into 14 languages with a focus on global scalability and behavioral change.</p>
+        <ul style="font-size: 0.85rem; color: var(--slate); list-style: none;">
+          <li style="margin-bottom: 0.5rem;">→ 96% completion rate across corporate/retail populations</li>
+          <li style="margin-bottom: 0.5rem;">→ 29% documented proficiency lift via pre/post assessments</li>
+        </ul>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-image">
-        <img src="security.png" alt="Security Enablement Strategy Map">
+      <div class="project-content">
+        <h3 style="font-family:'Playfair Display'; font-size:1.8rem; margin-bottom:1rem;">Technical Career Pathways</h3>
+        <p style="font-size:0.95rem; color:var(--slate-mid); margin-bottom: 1.5rem;">Building five standardized career pathways for security and technical program management roles. Mapping job-level requirements to modular learning assets.</p>
+        <ul style="font-size: 0.85rem; color: var(--slate); list-style: none;">
+          <li style="margin-bottom: 0.5rem;">→ Defined 150+ granular role competencies</li>
+          <li style="margin-bottom: 0.5rem;">→ Integrated shadowing and capstone validations</li>
+        </ul>
       </div>
-      <div class="project-info">
-        <span class="strategy-tag">Risk Mitigation · NIST/NICE Frameworks</span>
-        <h3 style="font-family:'Playfair Display'; font-size:1.9rem; margin:0.6rem 0;">Global Security Awareness</h3>
-        <p style="font-size:0.95rem; color:var(--slate);">Designed and scaled a global security literacy program for 86,000+ learners across 14 languages. Moved the organization from passive compliance to active behavioral risk mitigation.</p>
-        
-        <div class="strategy-box">
-          <span class="strategy-label">Hiring Manager Lens</span>
-          <p class="strategy-text">"Compliance is often viewed as a checkbox. My methodology focuses on <strong>behavioral triggers</strong>. By shifting the focus to how real people interact with security threats in real-time environments, we achieved a documented 29% proficiency lift."</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-info">
-        <span class="strategy-tag">Workforce Strategy · Talent Retention</span>
-        <h3 style="font-family:'Playfair Display'; font-size:1.9rem; margin:0.6rem 0;">Technical Career Pathways</h3>
-        <p style="font-size:0.95rem; color:var(--slate);">Built 5 competency-based pathways for high-demand technical roles. Defined 150+ role-specific competencies to provide a transparent roadmap for entry-to-expert progression.</p>
-        
-        <div class="strategy-box">
-          <span class="strategy-label">Human-Centered Design</span>
-          <p class="strategy-text">"I saw high-potential talent feeling 'stuck.' I architected these pathways to allow for <strong>non-linear growth</strong>, mapping learning assets to real-world career milestones. This didn't just upskill teams—it built a culture of internal mobility."</p>
-        </div>
-      </div>
-      <div class="project-image">
-        <img src="pathways.png" alt="Career Pathway Competency Map">
+      <div class="project-img-box">
+        <img src="pathways.png" alt="Career Pathways Visual">
       </div>
     </div>
 
@@ -126,23 +108,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.3); padding: 4rem 2re
 </section>
 
 <footer>
-  <div>Nikki Rosenvald · Strategic Learning Enablement · Valrico, FL</div>
-  <div style="margin-top: 1rem; opacity: 0.5;">
-    &copy; <script>document.write(new Date().getFullYear())</script> Architecting Human Capability
-  </div>
+  <p>Nikki Rosenvald · Learning Enablement Leader · Valrico, FL</p>
+  <p style="font-size: 0.6rem; margin-top: 1rem; opacity: 0.5;">&copy; 2026 Architecting Human Capability</p>
 </footer>
-
-<script>
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-</script>
 
 </body>
 </html>
